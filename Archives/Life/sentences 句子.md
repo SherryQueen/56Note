@@ -1,0 +1,1 @@
+- Let's tolerate our imperfections since we are all humans
