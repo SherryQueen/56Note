@@ -1,0 +1,10 @@
+{
+  "name": "npm-mirror",
+  "version": "0.1.0",
+  "author": "56",
+  "type": "module",
+  "dependencies": {
+    "ali-oss": "^6.4.0",
+    "node-fetch": "^2.6.0"
+  }
+}
