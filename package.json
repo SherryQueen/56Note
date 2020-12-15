@@ -1,0 +1,19 @@
+{
+  "name": "56notes",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SherryQueen/56Note.git"
+  },
+  "author": "56",
+  "bugs": {
+    "url": "https://github.com/SherryQueen/56Note/issues"
+  },
+  "homepage": "https://github.com/SherryQueen/56Note#readme",
+  "dependencies": {
+    "jest": "^26.6.3"
+  }
+}
