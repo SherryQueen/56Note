@@ -4,8 +4,6 @@
  * @description https://leetcode-cn.com/problems/monotone-increasing-digits/
  */
 
-const { describe, expect } = require('@jest/globals')
-
 /**
  * @param {number} N
  * @return {number}
