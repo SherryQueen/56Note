@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "56自用插件",
+  "version": "1.0",
+  "icons": {
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png",
+    "128": "icon/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "icon/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://sourcemaking.com/*"],
+      "js": ["src/source_making_reading.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://mp.weixin.qq.com/*"],
+      "js": ["src/mp_wx.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://*.zhihu.com/*"],
+      "js": ["src/zhihu_reader.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://juejin.im/*"],
+      "js": ["src/juejin.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
