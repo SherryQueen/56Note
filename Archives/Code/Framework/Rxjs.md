@@ -6,6 +6,62 @@
 - [Rxjs 文档](https://rxjs.dev/guide/overview)
 - [Rxjs repo](https://github.com/ReactiveX/rxjs)
 
+## 个人理解
+
+- 如何理解 Pull 机制
+
+  - 消费者 调用 生产者得到 需要的数据.
+
+    ```javascript
+    /** Function  */
+    function producer() {
+      // 生产数据, 只有 producer() 被调用 才继续执行
+      return '1'
+    }
+
+    function consumer() {
+      const data = producer() // * 决定获取数据
+    }
+
+    /** Iterator */
+    function* generator() {
+      // 生产数据, 只有 gen.next 被调用 才继续执行
+      yield 1
+      yield 2
+      yield 3
+    }
+    function consumer() {
+      const gen = generator()
+      gen.next() // * 决定获取数据
+    }
+    ```
+
+- 如何理解 Push 机制
+
+  - 消费者 通过对 生产者的观察, 当生产者产生新数据时, 通过对应的观察关系. 推送数据给消费者
+
+    ```javascript
+    new Promise((resolve) => {
+      /** Producer */
+      /** Some code */
+      resolve()
+    }).then(() => {
+      /** Consumer */
+    })
+
+    import { Observable } from 'rxjs'
+    const foo = new Observable((subscriber) => {
+      subscriber.next(1)
+      subscriber.next(2)
+      subscriber.complete()
+    })
+
+    foo.subscribe(
+      /** Observer */
+      { next: (val) => console.info(val) },
+    )
+    ```
+
 ## Observable
 
 - 可被调用的集合. 在 Rx 里作为 Producer
