@@ -51,6 +51,7 @@
 
     import { Observable } from 'rxjs'
     const foo = new Observable((subscriber) => {
+      /** Producer */
       subscriber.next(1)
       subscriber.next(2)
       subscriber.complete()
