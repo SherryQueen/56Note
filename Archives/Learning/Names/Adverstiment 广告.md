@@ -254,6 +254,7 @@
 - GP(Gross Profit) 净利润: 总收入-总成本
 - DR(Discount Rate) 贴现率: 票据面额 × 贴现率 × 票据到期期限
 - NPV(net present value profit) 利润净现值: 将未来的钱折现到现在的价值。 现在的价值 = 未来的 100w x 折现率
+- ARPU(Average Revenue per user) 每用户平均收入
 
 ### 客户投诉
 
@@ -358,7 +359,7 @@
 - LSCPA 异议处理
   - Listen   倾听
   - Share    分担
-  - Clarify  澄清
+  - Clarify  澄清
   - Present  表现
   - Ask      询问
 
