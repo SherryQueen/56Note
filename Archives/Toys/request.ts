@@ -32,11 +32,14 @@ export const getURLWithSearch = (
 ): string => {
   if (!query) return url;
   const search = stringify(query);
-  return url.includes("?")
-    ? url.endsWith("&")
-      ? search
-      : `&${search}`
-    : `?${search}`;
+  return (
+    url +
+    (url.includes("?")
+      ? url.endsWith("&")
+        ? search
+        : `&${search}`
+      : `?${search}`)
+  );
 };
 
 export const getErrorMessage = (data: string | Record<string, any>): string => {
