@@ -110,17 +110,20 @@ interface IRequestOption {
   baseURL: string;
   timeout?: number;
   handleResult?: IHandleResult;
+  commonRequestOption?: RequestInit;
 }
 
 export class IRequest implements IRequestOption {
   baseURL: string;
   timeout: number;
   _handleResult: IHandleResult;
+  _commonRequestOption: RequestInit;
 
   constructor(opt?: IRequestOption) {
     this.baseURL = opt?.baseURL ?? "";
     this.timeout = opt?.timeout ?? 0;
     this._handleResult = opt?.handleResult ?? handleResult;
+    this._commonRequestOption = opt?.commonRequestOption ?? {};
   }
 
   private async _request(url: string, option: IRequestAPIOption): Promise<any> {
@@ -129,7 +132,11 @@ export class IRequest implements IRequestOption {
     const controller = new AbortController();
     const signal = controller.signal;
     const timeout = option.timeout ?? this.timeout;
-    const opt: IRequestAPIOption = { ...option, signal };
+    const opt: IRequestAPIOption = {
+      ...this._commonRequestOption,
+      ...option,
+      signal,
+    };
 
     const queue: Promise<any>[] = [];
     if (timeout) {
