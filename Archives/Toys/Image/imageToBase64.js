@@ -12,7 +12,7 @@ const name = imgPath.slice(
 );
 const base64 = Buffer.from(image, "binary").toString("base64");
 
-const extMap = { jpg: "jpeg", jpeg: "jpeg", svg: "svg", png: "png" };
+const extMap = { jpg: "jpeg", jpeg: "jpeg", svg: "svg+xml", png: "png" };
 fs.writeFileSync(
   path.join(__dirname, `${name}.txt`),
   `data:image/${extMap[ext]};base64,` + base64
