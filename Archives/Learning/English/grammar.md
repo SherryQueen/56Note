@@ -76,12 +76,9 @@
 
 ## 动词
 
-### 助动词
+### 动词类型
 
-- 构成句子形式， 本身无实在意义
-- 基本助动词 be， have do
-
-### 实意动词
+#### 实意动词
 
 - Be 动词做联系作用，本身无意义
 - 本身有意义的动词
@@ -92,6 +89,65 @@
 - 否定(通过助动词 do/does/did + not 否定 + 动词原型)
 - 提问和回答
   - Does he often play golf？ Yes, he does、No he doesn't
+
+#### 助动词
+
+- 构成句子形式， 本身无实在意义
+- 基本助动词 be， have do
+
+#### 系动词
+
+- 无实际意义， 用于连接句子
+
+#### 情态动词
+
+- 既有情态含义， 愿意/必须 等 一般与实意动词使用
+
+- can/could
+
+  - 现在/过去 的能力 可用 be able to 代替
+  - 客观可能性(can 的可能性大)
+  - 表示请求或允许
+
+- may/might
+
+  - 表示可能性
+  - 请求 允许
+
+- must/have to 必须、必要
+
+  - must 主观 have 客观
+  - 否定意义 must 禁止 have 客观不用
+
+- Should/ought to 劝告、建议 命令
+
+  - should 主观看法 ought to 客观
+  - 疑问用 should 替代 ought to
+
+- need 需要
+  - 情态动词 do
+  - 实意动词 to do
+- don't have to 不需要
+- 回答 must 和 have to 的提问据 否定用 needn't don't have to
+
+- had better 最好做某事 不表征过去
+  - had better (not) do
+- would rather 宁愿 宁可 最好 还是...为好 比 had better 语气轻
+
+  - would rather (not) do
+
+- (used to /would) + do 过去习惯性动作
+  - used to 过去的状态和情况  would不能
+  - would 表示反复性发生的动作
+  - used to 过去常常 现在已结束  would 表示有可能发生
+
+### 形态变化
+
+- 原形
+- 单三
+- 现在分词
+- 过去式
+- 过去分词
 
 ### 疑问词
 
@@ -183,3 +239,67 @@
 - 做代词 一点也不
   - none 可接 of 动词可用单复数
   - no one 不可接 of 动词只能单数
+
+## 倒装句
+
+### There/Here + Be + 名词
+
+- 翻译： 大部分 (There be)有 或 (Here be)是 be 动词根据名词单复数变化
+
+## 时态
+
+### 一般现在时
+
+- 通常性，规律性，习惯性的状态或动作
+
+- 动词 变 单三
+  - 动词 + s play -> plays
+  - s,x,ch,o 结尾的词 后缀 -es guess -> guesses
+  - 辅音字母(a,e,i,o,u 以外)+y 结尾 y -> ies study -> studies
+
+### 现在进行时
+
+- 正在进行或发生的动作。 句子通常有 now 等时间副词
+- be + doing
+
+- 动词现在分词
+  - -ing work -> working
+  - 以不发音的 -e 结尾 去 e+ing take -> taking
+  - 重读闭音节 双写词尾字母 cut -> cutting
+  - -ie 结尾的动词 变 y + ing lie -> lying
+
+### 一般过去时
+
+- 过去某个时间里发生的动作或状态。 过去习惯性，经常性的行为
+- 主语 + 动词过去式
+
+- 规则动词
+  - 一般动词后面+ed play -> played
+  - e 结尾的动词 like -> liked
+  - 辅音字母 + y y -> ied supply -> supplied
+  - 重读闭音节结尾 且结尾只有一个辅音 双写字母+ed plan -> planned
+- 非规则 come -> came
+
+### 过去进行时
+
+- 过去某一时刻或某段时间正在进行或发生
+- was/were + doing
+
+### 将来时
+
+- 将来某一时刻或将来某段时间发生 常常和 将来时的时间状语连用 next week 等
+
+- 助动词 will 或 (I/We)shall + 动词原形 表示将来发生的事情
+- be going to + 动词原形 近期或实现考虑过的将要发生的动作以及已有迹象表明必将发生的
+- be doing 表示位置转移的动词
+  - go/come/leave/start/arrive
+
+### 现在完成时
+
+- 过去发生 已经完成， 对现在造成影响。 动作还可能持续 时间状语 already yet(还)
+- have + p.p.(过去分词)
+
+### 过去完成时
+
+- 动作发生在过去之前。 过去的过去 已经完成 对过去造成了一定的影响或后果
+- had + p.p.(过去分词)
