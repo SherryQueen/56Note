@@ -1,2 +1,0 @@
-- Let's tolerate our imperfections since we are all humans
-- I try to understand that some very good people do some very bad things.
