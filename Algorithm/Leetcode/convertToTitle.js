@@ -39,11 +39,11 @@ var convertToTitle = function (columnNumber) {
   }
   let res = ''
   let num = columnNumber
-  while (num) {
+  while (num > 0) {
     let ans = num % 26
     res = map[ans] + res
-    if (ans === 0) num = 0
-    else num = Math.floor(num / 26)
+    num = Math.floor(num / 26)
+    if (ans === 0) num -= 1
   }
   return res
 }
