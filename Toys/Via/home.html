@@ -1,0 +1,69 @@
+<!-- @author      56 -->
+<!-- @description Via homepage: hitokoto  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+      }
+      .search_bar {
+        position: fixed;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .hitokoto {
+        font-size: 18px;
+        padding: 12px;
+        color: white;
+        position: fixed;
+        bottom: 20%;
+        margin: auto;
+        left: 0;
+        right: 0;
+      }
+      .hitokoto .content {
+        font-size: 1.1em;
+        text-align: center;
+      }
+      .hitokoto .creator {
+        margin-top: 8px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hitokoto">
+      <div class="content"></div>
+      <div class="creator"></div>
+    </div>
+    <script>
+      ;(function () {
+        function fetchHitokoto() {
+          fetch('https://v1.hitokoto.cn/')
+            .then((res) => res.json())
+            .then((res) => {
+              const { hitokoto, creator } = res
+              document.querySelector('.hitokoto .content').innerText = hitokoto
+              document.querySelector('.hitokoto .creator').innerText = `— ${creator}`
+            })
+            .catch(console.error)
+        }
+
+        fetchHitokoto()
+      })()
+    </script>
+  </body>
+</html>

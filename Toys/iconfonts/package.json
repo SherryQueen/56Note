@@ -1,0 +1,9 @@
+{
+  "name": "iconfonts",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "dependencies": {
+    "font-carrier": "^0.3.1"
+  }
+}
