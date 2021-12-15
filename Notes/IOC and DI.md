@@ -124,7 +124,7 @@ export class B {
 
 ## DI 的概念与作用
 
-DI Depnedence Injection 依赖注入 是 IOC 常见的一种应用方式. 在对象创建时自动注入对应的依赖对象
+DI Dependence Injection 依赖注入 是 IOC 常见的一种应用方式. 在对象创建时自动注入对应的依赖对象
 一般通过注解来实现与标记对应类的依赖声明
 我们可以借助 Ts 的装饰器语法糖 来简化 DI 的过程. 从而避免 通过 ioc.bind(xx) this.xx = ioc.use 这种写法
 
