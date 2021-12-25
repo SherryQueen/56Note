@@ -1,3 +1,14 @@
 {
-  "cSpell.words": ["Libuv", "linebreak", "nums"]
+  "markdown.styles": [
+    "https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+  ],
+  "cSpell.words": [
+    "cwnd",
+    "heapify",
+    "Libuv",
+    "linebreak",
+    "nums",
+    "ssthresh",
+    "Tapable"
+  ]
 }

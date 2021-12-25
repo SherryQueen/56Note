@@ -4,11 +4,76 @@
 
 #### Bit Operation
 
-#### Synchronous/Asynchronous
+#### IO Operator
 
-#### Blocking/Unblocking
+- 同步与异步: 针对 `调用方` 和 `被调用方` 是**线程**之间的关系.
+
+  - 同步
+
+  ```mermaid
+  sequenceDiagram
+    title: 同步请求
+    participant A as Request
+    participant B as Response
+    A ->>+ B: 发起同步请求
+    note over A: 不做任何事, 等待结果返回(线程阻塞)
+    note over B: 处理请求
+    B ->>- A: 返回结果
+    note over A: 得到结果并继续运行
+  ```
+
+  - 异步
+
+  ```mermaid
+  sequenceDiagram
+    title: 异步请求
+    participant A as Request
+    participant B as Response
+    A ->>+ B: 发起异步请求, 传送回调函数Callback
+    note over A: 继续运行(线程非阻塞)
+    note over B: 处理请求
+    B ->>- A: 返回结果,调用回调函数 Callback
+    note over A: 回调函数Callback根据返回结果运行
+  ```
+
+- 阻塞与非阻塞: 在同一时刻, **线程** 只会处于阻塞或非阻塞状态
+
+  - 阻塞
+
+  ```mermaid
+  sequenceDiagram
+    title: 阻塞
+    participant M as Main
+    note over M: 线程运行
+    M ->>+IO: 发起请求
+    note over M: 线程阻塞, 不执行任何操作
+    IO ->>-M: 返回结果
+    note over M: 线程继续运行
+  ```
+
+  - 非阻塞
+
+  ```mermaid
+  sequenceDiagram
+    title: 非阻塞
+    participant M as Main
+    note over M: 线程运行
+    M ->>+IO: 发起请求, 传递回调函数
+    note over M: 线程非阻塞,继续运行,不关心调用结果
+    IO ->>-M: 返回结果, 并调用回调函数
+    note over M: 线程执行回调函数
+  ```
 
 #### Sort
+
+- [Bubble Sort](Notes/Sort/bubble.js)
+- [Bucket Sort](Notes/Sort/bucket.js)
+- [Quick Sort](Notes/Sort/quick.js)
+- [Heap Sort](Notes/Sort/heap.js)
+- [Insertion Sort](Notes/Sort/insertion.js)
+- [Merge Sort](Notes/Sort/merge.js)
+- [Selection Sort](Notes/Sort/selection.js)
+- [Shell Sort](Notes/Sort/shell.js)
 
 #### DataStructure
 
@@ -217,3 +282,7 @@
 #### Serverless
 
 - [Serverless 简介](/Notes/Serverless简介.md)
+
+```
+
+```
