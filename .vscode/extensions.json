@@ -1,3 +1,7 @@
 {
-  "recommendations": ["foam.foam-vscode", "yzhang.dictionary-completion", "streetsidesoftware.code-spell-checker"]
+  "recommendations": [
+    "bierner.github-markdown-preview",
+    "yzhang.dictionary-completion",
+    "streetsidesoftware.code-spell-checker"
+  ]
 }
