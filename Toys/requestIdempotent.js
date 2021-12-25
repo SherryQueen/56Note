@@ -9,7 +9,12 @@ const requestIdempotent = (fn, opt = {}) => {
     const key = ignoreQuery ? 'ignoreQuery' : JSON.stringify(args)
 
     const startFetch = async () => {
-      const ans = { loading: true, promise: fn.call(null, args), timeout, startTime: 0 }
+      const ans = {
+        loading: true,
+        promise: fn.call(null, args),
+        timeout,
+        startTime: 0,
+      }
       memory[key] = ans
 
       const data = await ans.promise

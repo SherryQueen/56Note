@@ -11,51 +11,51 @@
  * @param {number} k
  * @return {number}
  */
-const movingCount = function(m, n, k) {
-  let res = 0;
-  const map = {};
-  if (k === 0) return 1;
-  const stack = [{ x: 0, y: 0 }];
+const movingCount = function (m, n, k) {
+  let res = 0
+  const map = {}
+  if (k === 0) return 1
+  const stack = [{ x: 0, y: 0 }]
 
-  const calcNumber = num => {
-    let sum = 0;
-    let ans = num;
+  const calcNumber = (num) => {
+    let sum = 0
+    let ans = num
     while (ans) {
-      sum += ans % 10;
-      ans = Math.floor(ans / 10);
+      sum += ans % 10
+      ans = Math.floor(ans / 10)
     }
-    return sum;
-  };
+    return sum
+  }
 
   const canAccess = (x, y) => {
-    if (x < 0 || x === m || y < 0 || y === n || calcNumber(x) + calcNumber(y) > k) return false;
-    return true;
-  };
+    if (x < 0 || x === m || y < 0 || y === n || calcNumber(x) + calcNumber(y) > k) return false
+    return true
+  }
 
-  const getKey = (x, y) => x + '_' + y;
+  const getKey = (x, y) => x + '_' + y
 
   const move = (x, y) => {
     if (!map[getKey(x, y)] && canAccess(x, y)) {
-      map[getKey(x, y)] = true;
-      stack.push({ x, y });
+      map[getKey(x, y)] = true
+      stack.push({ x, y })
     }
-  };
-
-  map[getKey(0, 0)] = true;
-  while (stack.length) {
-    const p = stack.pop();
-    res += 1;
-
-    const { x, y } = p;
-
-    move(x + 1, y);
-    move(x - 1, y);
-    move(x, y + 1);
-    move(x, y - 1);
   }
-  return res;
-};
 
-console.assert(movingCount(3, 2, 17) === 6);
-console.assert(movingCount(5, 3, 0) === 1);
-console.assert(movingCount(2, 3, 1) === 3);
+  map[getKey(0, 0)] = true
+  while (stack.length) {
+    const p = stack.pop()
+    res += 1
+
+    const { x, y } = p
+
+    move(x + 1, y)
+    move(x - 1, y)
+    move(x, y + 1)
+    move(x, y - 1)
+  }
+  return res
+}
+
+console.assert(movingCount(3, 2, 17) === 6)
+console.assert(movingCount(5, 3, 0) === 1)
+console.assert(movingCount(2, 3, 1) === 3)

@@ -12,7 +12,7 @@
 
 #### DataStructure
 
-###### [Heap](/Docs/Notes/DataStructure/Heap.js)
+- [Heap](/Notes/DataStructure/Heap.js)
 
 #### DesignPattern
 
@@ -176,7 +176,7 @@
 
 - TCP(Transmission Content Protocol)(可靠的,面向连接的可靠的字节流服务)
   - 浏览器中单域名限制
-  - [拥塞算法](/Docs/Notes/TCP拥塞算法.md)
+  - [拥塞算法](/Notes/TCP拥塞算法.md)
 - UDP(User Data Protocol)(不可靠的,简单的面向数据报文的字节流服务)
 
 ###### Network(网络层)
@@ -216,4 +216,4 @@
 
 #### Serverless
 
-- [Serverless 简介](/Docs/Notes/Serverless简介.md)
+- [Serverless 简介](/Notes/Serverless简介.md)

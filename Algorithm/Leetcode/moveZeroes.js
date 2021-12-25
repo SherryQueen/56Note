@@ -9,14 +9,14 @@
  * @param {number[]} nums
  */
 const moveZeroes = function (nums) {
-  const len = nums.length;
-  let zero = 0;
+  const len = nums.length
+  let zero = 0
   for (let i = 0; i < len; i++) {
-    if (nums[i] === 0) continue;
-    else nums[zero++] = nums[i];
+    if (nums[i] === 0) continue
+    else nums[zero++] = nums[i]
   }
-  while (zero < len) nums[zero++] = 0;
-  return nums;
-};
+  while (zero < len) nums[zero++] = 0
+  return nums
+}
 
-console.info(moveZeroes([0, 1, 0, 3, 12]));
+console.info(moveZeroes([0, 1, 0, 3, 12]))

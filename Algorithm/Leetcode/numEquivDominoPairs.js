@@ -29,7 +29,7 @@ console.info(
     [1, 2],
     [2, 1],
     [1, 2],
-  ]),
+  ])
 )
 console.info(
   numEquivDominoPairs([
@@ -37,5 +37,5 @@ console.info(
     [2, 1],
     [3, 4],
     [5, 6],
-  ]),
+  ])
 )

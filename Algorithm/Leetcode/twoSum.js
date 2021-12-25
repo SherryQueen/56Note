@@ -10,11 +10,11 @@
  * @return {number[]}
  */
 const twoSum = function (nums, target) {
-  const map = {};
+  const map = {}
   for (let i = 0, len = nums.length; i < len; i++) {
-    const n = nums[i];
-    if (map[n] !== undefined) return [map[n], i];
-    map[target - n] = i;
+    const n = nums[i]
+    if (map[n] !== undefined) return [map[n], i]
+    map[target - n] = i
   }
-  return [];
-};
+  return []
+}

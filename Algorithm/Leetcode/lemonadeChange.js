@@ -9,35 +9,35 @@
  * @return {boolean}
  */
 const lemonadeChange = function (bills) {
-  if (!bills.length) return true;
-  let five = 0;
-  let ten = 0;
+  if (!bills.length) return true
+  let five = 0
+  let ten = 0
   for (let b of bills) {
     if (b === 5) {
-      five++;
-      continue;
+      five++
+      continue
     }
 
     // 缺少5元 无法找零
-    if (!five) return false;
+    if (!five) return false
 
     // 10元找零5元
     if (b === 10) {
-      five--;
-      ten++;
-      continue;
+      five--
+      ten++
+      continue
     }
 
     // 优先 10+5找零
     if (ten) {
-      ten--;
-      five--;
-      continue;
+      ten--
+      five--
+      continue
     }
     // 凑不齐15元找零
-    if (five < 3) return false;
+    if (five < 3) return false
     // 3张5元找零
-    five -= 3;
+    five -= 3
   }
-  return true;
-};
+  return true
+}

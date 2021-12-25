@@ -45,5 +45,5 @@ var isCousins = function (root, x, y) {
 }
 
 console.info(
-  isCousins(new TreeNode(1, new TreeNode(2, null, new TreeNode(4)), new TreeNode(3, null, new TreeNode(5))), 4, 5),
+  isCousins(new TreeNode(1, new TreeNode(2, null, new TreeNode(4)), new TreeNode(3, null, new TreeNode(5))), 4, 5)
 )

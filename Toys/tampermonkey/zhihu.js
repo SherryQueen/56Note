@@ -19,8 +19,7 @@
       text = document.createTextNode(`#root .TitleImage {width: 80vw !important}
     #root .Post-SideActions {left: 10px !important}
     #root .Post-NormalMain .Post-Header, #root .Post-NormalMain>div, .Post-NormalSub>div {width: 80vw !important}`)
-    }
-    else if(location.host === 'www.zhihu.com') {
+    } else if (location.host === 'www.zhihu.com') {
       text = document.createTextNode(`
       #root .ContentLayout,#root .Topstory-container,#root .Question-main {width:80vw !important}
       #root .ContentLayout-mainColumn,#root .Question-mainColumn,#root .Topstory-mainColumn {width:calc(80vw - 310px) !important}

@@ -56,7 +56,7 @@ jest('minCostConnectPoints', () => {
       [3, 12],
       [-2, 5],
       [-4, 1],
-    ]),
+    ])
   ).toBe(18)
   expect(
     minCostConnectPoints([
@@ -64,6 +64,6 @@ jest('minCostConnectPoints', () => {
       [1, 1],
       [1, 0],
       [-1, 1],
-    ]),
+    ])
   ).toBe(4)
 })

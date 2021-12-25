@@ -39,5 +39,5 @@ Fs.writeFileSync(
   font-size: 16px;
   font-style: normal;
 }
-`,
+`
 )

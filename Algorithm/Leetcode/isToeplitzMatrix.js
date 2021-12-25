@@ -29,5 +29,5 @@ console.info(
   isToeplitzMatrix([
     [1, 2],
     [2, 2],
-  ]),
+  ])
 )

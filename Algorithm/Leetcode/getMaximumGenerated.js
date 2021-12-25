@@ -26,4 +26,3 @@ var getMaximumGenerated = function (n) {
   }
   return Math.max(...nums)
 }
-

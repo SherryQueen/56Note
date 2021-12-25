@@ -44,4 +44,3 @@ function heap(nums) {
   buildMinHeap()
   return sort()
 }
-

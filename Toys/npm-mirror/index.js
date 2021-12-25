@@ -20,7 +20,7 @@ const fetchPage = async (url) => {
   if (!Array.isArray(links)) return []
   return links.map((link) =>
     // ? Return [href, name]
-    link.match(/<a.*?href="\/mirrors(.+)?".*?>(.+)?<\/a>/i).slice(1),
+    link.match(/<a.*?href="\/mirrors(.+)?".*?>(.+)?<\/a>/i).slice(1)
   )
 }
 

@@ -5,12 +5,12 @@
  */
 
 const titleToNumber = function (s) {
-  if (!s) return 0;
-  let result = 0;
+  if (!s) return 0
+  let result = 0
   for (let i = 0, len = s.length; i < len; i++) {
-    result = result * 26 + (s[i].charCodeAt() - 64);
+    result = result * 26 + (s[i].charCodeAt() - 64)
   }
-  return result;
-};
+  return result
+}
 
-console.info(titleToNumber("ZY"));
+console.info(titleToNumber('ZY'))

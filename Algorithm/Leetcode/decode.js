@@ -18,6 +18,6 @@ var decode = function (encoded, first) {
       prev.push(cur ^ prev[prev.length - 1])
       return prev
     },
-    [first],
+    [first]
   )
 }

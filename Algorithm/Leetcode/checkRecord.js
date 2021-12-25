@@ -10,7 +10,7 @@
 注意: 试了下测试用例  'LLALL' 不算连续迟到三天
 */
 
-var checkRecord = function (s) {
+var checkRecord1 = function (s) {
   // S 出现的位置不一致, 则至少缺勤两天. 存在 LLL 则 连续三天迟到
   return s.indexOf('A') == s.lastIndexOf('A') && !s.includes('LLL')
 }
@@ -19,7 +19,7 @@ var checkRecord = function (s) {
  * @param {string} s
  * @return {boolean}
  */
-var checkRecord = function (s) {
+var checkRecord2 = function (s) {
   const len = s.length
   if (len < 2) return true
   let absent = 0

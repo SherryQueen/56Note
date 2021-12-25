@@ -21,18 +21,18 @@
  * @param {number} k
  * @return {ListNode}
  */
- var getKthFromEnd = function(head, k) {
+var getKthFromEnd = function (head, k) {
   let p = head
   let q = head
-  let i = 0;
-  while(i < k && p) {
+  let i = 0
+  while (i < k && p) {
     p = p.next
     i++
   }
-  if(i < k) return null
-  while(p) {
+  if (i < k) return null
+  while (p) {
     p = p.next
     q = q.next
   }
-  return q;
-};
+  return q
+}

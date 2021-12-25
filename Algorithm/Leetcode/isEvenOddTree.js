@@ -16,9 +16,9 @@
  */
 class TreeNode {
   constructor(val, left, right) {
-    this.val = val === undefined ? 0 : val;
-    this.left = left === undefined ? null : left;
-    this.right = right === undefined ? null : right;
+    this.val = val === undefined ? 0 : val
+    this.left = left === undefined ? null : left
+    this.right = right === undefined ? null : right
   }
 }
 
@@ -27,34 +27,33 @@ class TreeNode {
  * @return {boolean}
  */
 var isEvenOddTree = function (root) {
-  const isOddNum = (num) => !!(num % 2);
+  const isOddNum = (num) => !!(num % 2)
 
-  let queue = [root];
-  let depth = 0;
+  let queue = [root]
+  let depth = 0
   while (queue.length) {
-    const isOdd = isOddNum(depth);
-    const nextQueue = [];
+    const isOdd = isOddNum(depth)
+    const nextQueue = []
 
-    let prev = queue.shift();
-    if (prev.left) nextQueue.push(prev.left);
-    if (prev.right) nextQueue.push(prev.right);
-    if ((isOdd && isOddNum(prev.val)) || (!isOdd && !isOddNum(prev.val)))
-      return false;
+    let prev = queue.shift()
+    if (prev.left) nextQueue.push(prev.left)
+    if (prev.right) nextQueue.push(prev.right)
+    if ((isOdd && isOddNum(prev.val)) || (!isOdd && !isOddNum(prev.val))) return false
 
     for (const node of queue) {
       if (isOdd) {
-        if (isOddNum(node.val)) return false;
-        if (node.val >= prev.val) return false;
+        if (isOddNum(node.val)) return false
+        if (node.val >= prev.val) return false
       } else {
-        if (!isOddNum(node.val)) return false;
-        if (node.val <= prev.val) return false;
+        if (!isOddNum(node.val)) return false
+        if (node.val <= prev.val) return false
       }
-      if (node.left) nextQueue.push(node.left);
-      if (node.right) nextQueue.push(node.right);
-      prev = node;
+      if (node.left) nextQueue.push(node.left)
+      if (node.right) nextQueue.push(node.right)
+      prev = node
     }
-    depth++;
-    queue = nextQueue;
+    depth++
+    queue = nextQueue
   }
-  return true;
-};
+  return true
+}

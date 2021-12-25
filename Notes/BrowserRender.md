@@ -3,6 +3,7 @@
 > tags: #Render #Browser
 
 ## Render
+
 ![DOM Tree -> Layer Tree](/Assets/20211207061301.png)
 
 - 位图: 以二维数组记录当前图像的每一个像素点的具体颜色

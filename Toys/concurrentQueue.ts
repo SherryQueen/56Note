@@ -1,15 +1,15 @@
 export interface IConcurrentQueueOption {
-  retry?: number;
-  maxLimit?: number;
+  retry?: number
+  maxLimit?: number
 }
 
 const defaultOption: Required<IConcurrentQueueOption> = {
   maxLimit: 5,
   retry: 2,
-};
+}
 
 interface IFn<T = any> {
-  (...args: any[]): Promise<T>;
+  (...args: any[]): Promise<T>
 }
 
 /**
@@ -22,56 +22,55 @@ interface IFn<T = any> {
  * 6. 检查队列 check
  */
 export class ConcurrentQueue {
-  waitQueue: (() => void)[] = [];
+  waitQueue: (() => void)[] = []
 
-  concurrentCount = 0;
-  option: Required<IConcurrentQueueOption> = defaultOption;
+  concurrentCount = 0
+  option: Required<IConcurrentQueueOption> = defaultOption
 
   constructor(option?: IConcurrentQueueOption) {
-    this.option = option ? { ...defaultOption, ...option } : defaultOption;
+    this.option = option ? { ...defaultOption, ...option } : defaultOption
   }
 
   updateOption(option: IConcurrentQueueOption) {
-    this.option = { ...this.option, ...option };
+    this.option = { ...this.option, ...option }
   }
 
   async run(fn: IFn) {
-    const { maxLimit, retry } = this.option;
-    if (this.concurrentCount >= maxLimit) await this.block();
+    const { maxLimit, retry } = this.option
+    if (this.concurrentCount >= maxLimit) await this.block()
 
-    this.concurrentCount++;
-    let i = 0;
+    this.concurrentCount++
+    let i = 0
     while (i < retry) {
-      let done = false;
+      let done = false
       try {
-        const result = await fn();
-        done = true;
-        return result;
+        const result = await fn()
+        done = true
+        return result
       } catch (err) {
-        i++;
+        i++
         if (i > maxLimit) {
-          done = true;
-          return Promise.reject(err);
+          done = true
+          return Promise.reject(err)
         }
       } finally {
         if (done) {
-          this.concurrentCount--;
-          this.next();
-          break;
+          this.concurrentCount--
+          this.next()
+          break
         }
       }
     }
   }
 
   private next() {
-    if (!this.waitQueue.length) return;
-    const fn = this.waitQueue.shift();
-    fn && fn();
+    if (!this.waitQueue.length) return
+    const fn = this.waitQueue.shift()
+    fn && fn()
   }
 
   private block(): Promise<void> {
-    const block = () =>
-      new Promise<void>((resolve) => this.waitQueue.push(resolve));
-    return block();
+    const block = () => new Promise<void>((resolve) => this.waitQueue.push(resolve))
+    return block()
   }
 }

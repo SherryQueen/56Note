@@ -1,5 +1,7 @@
 ### Hello, I am 56 🧐
+
 > A Front-End Engineer. Now employed by ByteDance.
+
 - 🌱 I’m currently learning Design Pattern
 - 📖 My Note: [56Note](https://github.com/SherryQueen/56Note)
 - 💬 Motto: Let's tolerate our imperfections since we are all humans

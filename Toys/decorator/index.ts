@@ -17,7 +17,7 @@ class B {
 console.info(new B('B').toString())
 
 function iClass(
-  constructor: Function /* 接受的参数为被装饰类的声明定义. 因为 Class 只是语法糖, 其等价于function来声明构造函数和通过function的原型来绑定方法和属性. 故此处参数类型为函数 */,
+  constructor: Function /* 接受的参数为被装饰类的声明定义. 因为 Class 只是语法糖, 其等价于function来声明构造函数和通过function的原型来绑定方法和属性. 故此处参数类型为函数 */
 ) {
   console.info('iClass', constructor, constructor.prototype)
   constructor.prototype.toString = function () {
@@ -110,7 +110,7 @@ function validate /* 函数修饰器,进行校验 */(
   this: any,
   target: Object,
   propertyName: string,
-  descriptor: TypedPropertyDescriptor<any>,
+  descriptor: TypedPropertyDescriptor<any>
 ) {
   const method = descriptor.value
 
@@ -139,4 +139,3 @@ try {
 } catch (err) {
   console.error('Err', err)
 }
-

@@ -196,9 +196,9 @@ class Heap {
           ...graph[i].map(
             (char, idx) =>
               char.toString().padStart(charWidth, ' ') +
-              ''.padStart(idx === graph[i].length - 1 ? spaces[i + 1] : spaces[i], ' '),
+              ''.padStart(idx === graph[i].length - 1 ? spaces[i + 1] : spaces[i], ' ')
           ),
-        ].join(''),
+        ].join('')
       )
   }
 }

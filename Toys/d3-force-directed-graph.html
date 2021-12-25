@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
@@ -43,7 +42,7 @@
           { source: 'A', target: 'G' },
           { source: 'A', target: 'I' },
           { source: 'A', target: 'J' },
-        ]
+        ],
       }
 
       const width = document.body.clientWidth
@@ -55,57 +54,61 @@
         .attr('height', height)
         .attr('viewBox', [-width / 2, -height / 2, width, height].join(','))
 
-      const simulation = d3.forceSimulation(graph.nodes) // 建立模型图
-        .force('link', d3.forceLink(graph.links).id((d) => (d).name) /* 建立连接力的关系 */) // 连接力
+      const simulation = d3
+        .forceSimulation(graph.nodes) // 建立模型图
+        .force(
+          'link',
+          d3.forceLink(graph.links).id((d) => d.name) /* 建立连接力的关系 */
+        ) // 连接力
         .force('charge', d3.forceManyBody().strength(-20)) // 建立斥力. 将各节点分开
         .force('center', d3.forceCenter()) // 建立向心力
         .on('tick', ticked) // 力在作用的过程中会产生多次变化. 需要实时更新应用到svg上
 
-      const link = svg.append('g')
+      const link = svg
+        .append('g')
         .selectAll('line')
         .data(graph.links)
         .join('line')
         .attr('stroke', 'red')
         .attr('stroke-width', 1)
 
-
-      const node = svg.append('g')
+      const node = svg
+        .append('g')
         .selectAll('circle')
         .data(graph.nodes)
         .join('circle')
         .attr('r', 5)
         .attr('fill', 'blue')
-        .call((d3.drag()
-          .on('start', (ev) => {
-            if (!ev.active) simulation.alphaTarget(0.5).restart()
-            ev.subject.fx = ev.subject.x
-            ev.subject.fy = ev.subject.y
-          })
-          .on('drag', (ev) => {
-            ev.subject.fx = ev.x
-            ev.subject.fy = ev.y
-          })
-          .on('end', (ev) => {
-            if (!ev.active) simulation.alphaTarget(0)
-            ev.subject.fx = null
-            ev.subject.fy = null
-          })
-        ))
+        .call(
+          d3
+            .drag()
+            .on('start', (ev) => {
+              if (!ev.active) simulation.alphaTarget(0.5).restart()
+              ev.subject.fx = ev.subject.x
+              ev.subject.fy = ev.subject.y
+            })
+            .on('drag', (ev) => {
+              ev.subject.fx = ev.x
+              ev.subject.fy = ev.y
+            })
+            .on('end', (ev) => {
+              if (!ev.active) simulation.alphaTarget(0)
+              ev.subject.fx = null
+              ev.subject.fy = null
+            })
+        )
 
       /**
        * 力作用过程中产生多次变化, 需要实时更新应用到svg上
        */
       function ticked() {
         link
-          .attr('x1', d => (d.source).x)
-          .attr('y1', d => (d.source).y)
-          .attr('x2', d => (d.target).x)
-          .attr('y2', d => (d.target).y)
-        node
-          .attr('cx', d => d.x)
-          .attr('cy', d => d.y)
+          .attr('x1', (d) => d.source.x)
+          .attr('y1', (d) => d.source.y)
+          .attr('x2', (d) => d.target.x)
+          .attr('y2', (d) => d.target.y)
+        node.attr('cx', (d) => d.x).attr('cy', (d) => d.y)
       }
     </script>
   </body>
-
 </html>

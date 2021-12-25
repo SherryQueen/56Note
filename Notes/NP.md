@@ -1,4 +1,4 @@
-# NP-C NP完全问题 (Non-deterministic Polynomial Complete)
+# NP-C NP 完全问题 (Non-deterministic Polynomial Complete)
 
 > tags: #NP
 
@@ -6,9 +6,10 @@
 
 - 多项式复杂程度的非确定性问题 即 P = NP?
 - P 问题
-  - 所有可在多项式时间内求解的判断性问题构成P类问题
+  - 所有可在多项式时间内求解的判断性问题构成 P 类问题
 - NP 问题
-  - 所有非确定性多项式时间内可解的问题构成 NP类问题
+
+  - 所有非确定性多项式时间内可解的问题构成 NP 类问题
 
 - 确定性问题
   - 可以按照公式, 按部就班计算即可得到答案 如: 加减乘除

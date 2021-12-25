@@ -5,17 +5,17 @@
  */
 
 const isAnagram = function (s, t) {
-  if (s.length !== t.length) return false;
-  const m = {};
+  if (s.length !== t.length) return false
+  const m = {}
   for (let i = 0, len = s.length; i < len; i++) {
-    m[s[i]] = (m[s[i]] || 0) + 1;
+    m[s[i]] = (m[s[i]] || 0) + 1
   }
   for (let i = 0, len = s.length; i < len; i++) {
-    if (!m[t[i]]) return false;
-    if (--m[t[i]] < 0) return false;
+    if (!m[t[i]]) return false
+    if (--m[t[i]] < 0) return false
   }
-  return true;
-};
+  return true
+}
 
-console.info(isAnagram("rat", "cat"));
-console.info(isAnagram("anagram", "nagaram"));
+console.info(isAnagram('rat', 'cat'))
+console.info(isAnagram('anagram', 'nagaram'))

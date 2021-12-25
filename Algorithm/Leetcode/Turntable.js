@@ -6,52 +6,52 @@
  * @return {number}
  */
 const openLock = function (deadends, target) {
-  if (target === '0000') return 0; // * The initial value is equals target value
+  if (target === '0000') return 0 // * The initial value is equals target value
 
-  const map = {};
+  const map = {}
   for (let i = 0, len = deadends.length; i < len; i++) {
-    if (deadends[i] === '0000') return -1; // * The deadens includes the initial value, the lock is can't be unlocked
-    map[deadends[i]] = true;
+    if (deadends[i] === '0000') return -1 // * The deadens includes the initial value, the lock is can't be unlocked
+    map[deadends[i]] = true
   }
 
   const isNormal = (key) => {
-    if (map[key]) return false;
-    map[key] = true;
-    return true;
-  };
+    if (map[key]) return false
+    map[key] = true
+    return true
+  }
 
-  let step = 0;
-  let haveSolved = false;
-  const queue = [[0, 0, 0, 0]];
+  let step = 0
+  let haveSolved = false
+  const queue = [[0, 0, 0, 0]]
   while (!haveSolved && queue.length) {
-    const currents = [...queue];
-    queue.length = 0; // * Clear queue
-    step++; // * Step up
-    console.log('step:', step);
+    const currents = [...queue]
+    queue.length = 0 // * Clear queue
+    step++ // * Step up
+    console.log('step:', step)
     for (let i = 0, len = currents.length; i < len; i++) {
       for (let j = 0; j < 4; j++) {
-        const a = [...currents[i]];
-        const b = [...currents[i]];
+        const a = [...currents[i]]
+        const b = [...currents[i]]
 
-        a[j] = a[j] === 9 ? 0 : a[j] + 1;
-        b[j] = b[j] === 0 ? 9 : b[j] - 1;
+        a[j] = a[j] === 9 ? 0 : a[j] + 1
+        b[j] = b[j] === 0 ? 9 : b[j] - 1
 
-        const ak = a.join('');
-        const bk = b.join('');
+        const ak = a.join('')
+        const bk = b.join('')
 
         if (ak === target || bk === target) {
-          haveSolved = true;
-          break;
+          haveSolved = true
+          break
         }
 
-        if (isNormal(ak)) queue.push(a);
-        if (isNormal(bk)) queue.push(b);
+        if (isNormal(ak)) queue.push(a)
+        if (isNormal(bk)) queue.push(b)
       }
-      if (haveSolved) break;
+      if (haveSolved) break
     }
   }
 
-  return haveSolved ? step : -1;
-};
+  return haveSolved ? step : -1
+}
 
-console.log(openLock(['2222'], '0102'));
+console.log(openLock(['2222'], '0102'))

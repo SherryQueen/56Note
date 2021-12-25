@@ -90,7 +90,7 @@ console.info(
     ['David', 'David4@m.co', 'David5@m.co'],
     ['David', 'David2@m.co', 'David3@m.co'],
     ['David', 'David1@m.co', 'David2@m.co'],
-  ]),
+  ])
 )
 console.info(
   accountsMerge([
@@ -98,5 +98,5 @@ console.info(
     ['John', 'johnsmith@mail.com', 'john00@mail.com'],
     ['Mary', 'mary@mail.com'],
     ['John', 'johnnybravo@mail.com'],
-  ]),
+  ])
 )

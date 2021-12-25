@@ -28,7 +28,7 @@ var isRectangleCover = function (rectangles) {
     maxY = Math.max(maxY, b)
     area += (a - x) * (b - y)
     ;[`${x}|${y}`, `${x}|${b}`, `${a}|${y}`, `${a}|${b}`].forEach((p) =>
-      points.has(p) ? points.delete(p) : points.add(p),
+      points.has(p) ? points.delete(p) : points.add(p)
     )
   })
 
@@ -53,5 +53,5 @@ console.info(
     [0, 2, 2, 3],
     [4, 1, 5, 2],
     [5, 0, 6, 1],
-  ]),
+  ])
 )
