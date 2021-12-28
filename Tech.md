@@ -151,6 +151,33 @@
 
 - [render](Notes/BrowserRender.md)
 
+### 优化
+
+#### 名次
+
+- **FP**: First Paint
+- **FCP**: First Contentful Paint
+- **FMP**: First Meaningful Paint
+- **LCP**: Largest Contentful Paint
+- **CLS**: Cumulative Layout Shift
+- **TBT**: Total Blocking Time
+
+#### 图片优化方案
+
+- 未指定图片大小
+  - 未指定图片大小会导致布局的不稳定
+  - 指定图片大小可能会导致图片失真或长宽比发生变化 可以考虑采用 `aspect-ratio` 或 `object-fit` 来优化
+- 图片过大
+  - 图片越大, 下载的时间过长. 导致`LCP`时间过长
+  - 通过更好的压缩来减小图片大小
+  - 通过 `<img>` 的 `srcset`和`sizes`指定不同大小的图片文件
+  - 或者通过`<picture>` 根据不同的`@media`属性加载不同大小的图片
+- 图片压缩格式的选择
+  - 选用更好的压缩格式如 `webp`
+- 不必要的图片加载
+  - 首屏不加载看不见的图片
+  - 通过懒加载或预加载来避免视图外的图片提前渲染
+
 ## React
 
 ## Vue
