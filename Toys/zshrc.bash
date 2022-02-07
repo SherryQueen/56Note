@@ -113,3 +113,6 @@ alias gruo='git remote update -p'
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
