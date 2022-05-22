@@ -141,43 +141,43 @@ export class IRequest implements IRequestOption {
     return promise;
   }
 
-  request<T = any>(url: string, option: IRequestAPIOption & { preHandle?: boolean }): Promise<T> {
+  protected request<T = any>(url: string, option: IRequestAPIOption & { preHandle?: boolean }): Promise<T> {
     const promise = this._request(url, option);
     return option?.preHandle ?? true ? promise.then(handleResponse).then(this._handleResult) : promise;
   }
 
-  get<R = unknown>(url: string, query?: Record<string, any>, option?: IRequestAPIOption): Promise<R> {
+  protected get<R = unknown>(url: string, query?: Record<string, any>, option?: IRequestAPIOption): Promise<R> {
     return this.request(getURLWithSearch(url, query), {
       ...option,
       method: 'get',
     });
   }
 
-  post<R = any>(url: string): Promise<R>;
-  post<R = any>(url: string, data: Record<string, any>): Promise<R>;
-  post<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
-  post<R = any>(
+  protected post<R = any>(url: string): Promise<R>;
+  protected post<R = any>(url: string, data: Record<string, any>): Promise<R>;
+  protected post<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
+  protected post<R = any>(
     url: string,
     query: Record<string, any>,
     data: Record<string, any>,
     option: IRequestAPIOption
   ): Promise<R>;
-  post<R = any>(...args: any[]): Promise<R> {
+  protected post<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.postJson(url, query, data as Record<string, any>, option);
   }
 
-  postJson<R = any>(url: string): Promise<R>;
-  postJson<R = any>(url: string, data: Record<string, any>): Promise<R>;
-  postJson<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
-  postJson<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
-  postJson<R = any>(
+  protected postJson<R = any>(url: string): Promise<R>;
+  protected postJson<R = any>(url: string, data: Record<string, any>): Promise<R>;
+  protected postJson<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
+  protected postJson<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
+  protected postJson<R = any>(
     url: string,
     query: Record<string, any>,
     data: Record<string, any>,
     option: IRequestAPIOption
   ): Promise<R>;
-  postJson<R = any>(...args: any[]): Promise<R> {
+  protected postJson<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.request(getURLWithSearch(url, query), {
       ...option,
@@ -186,16 +186,16 @@ export class IRequest implements IRequestOption {
       headers: { ...option.headers, 'Content-Type': ContentType.JSON },
     });
   }
-  postForm<R = any>(url: string): Promise<R>;
-  postForm<R = any>(url: string, data: Record<string, any>): Promise<R>;
-  postForm<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
-  postForm<R = any>(
+  protected postForm<R = any>(url: string): Promise<R>;
+  protected postForm<R = any>(url: string, data: Record<string, any>): Promise<R>;
+  protected postForm<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
+  protected postForm<R = any>(
     url: string,
     query: Record<string, any>,
     data: Record<string, any>,
     option: IRequestAPIOption
   ): Promise<R>;
-  postForm<R = any>(...args: any[]): Promise<R> {
+  protected postForm<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.request(getURLWithSearch(url, query), {
       ...option,
@@ -205,11 +205,16 @@ export class IRequest implements IRequestOption {
     });
   }
 
-  postFormData<R = any>(url: string): Promise<R>;
-  postFormData<R = any>(url: string, data: FormData): Promise<R>;
-  postFormData<R = any>(url: string, query: Record<string, any>, data: FormData): Promise<R>;
-  postFormData<R = any>(url: string, query: Record<string, any>, data: FormData, option: IRequestAPIOption): Promise<R>;
-  postFormData<R = any>(...args: any[]): Promise<R> {
+  protected postFormData<R = any>(url: string): Promise<R>;
+  protected postFormData<R = any>(url: string, data: FormData): Promise<R>;
+  protected postFormData<R = any>(url: string, query: Record<string, any>, data: FormData): Promise<R>;
+  protected postFormData<R = any>(
+    url: string,
+    query: Record<string, any>,
+    data: FormData,
+    option: IRequestAPIOption
+  ): Promise<R>;
+  protected postFormData<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.request(getURLWithSearch(url, query), {
       ...option,
@@ -218,30 +223,30 @@ export class IRequest implements IRequestOption {
     });
   }
 
-  put<R = any>(url: string): Promise<R>;
-  put<R = any>(url: string, data: Record<string, any>): Promise<R>;
-  put<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
-  put<R = any>(
+  protected put<R = any>(url: string): Promise<R>;
+  protected put<R = any>(url: string, data: Record<string, any>): Promise<R>;
+  protected put<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
+  protected put<R = any>(
     url: string,
     query: Record<string, any>,
     data: Record<string, any>,
     option: IRequestAPIOption
   ): Promise<R>;
-  put<R = any>(...args: any[]): Promise<R> {
+  protected put<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.putJson(url, query, data as Record<string, any>, option);
   }
 
-  putJson<R = any>(url: string): Promise<R>;
-  putJson<R = any>(url: string, data: Record<string, any>): Promise<R>;
-  putJson<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
-  putJson<R = any>(
+  protected putJson<R = any>(url: string): Promise<R>;
+  protected putJson<R = any>(url: string, data: Record<string, any>): Promise<R>;
+  protected putJson<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
+  protected putJson<R = any>(
     url: string,
     query: Record<string, any>,
     data: Record<string, any>,
     option: IRequestAPIOption
   ): Promise<R>;
-  putJson<R = any>(...args: any[]): Promise<R> {
+  protected putJson<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.request(getURLWithSearch(url, query), {
       ...option,
@@ -251,16 +256,16 @@ export class IRequest implements IRequestOption {
     });
   }
 
-  putForm<R = any>(url: string): Promise<R>;
-  putForm<R = any>(url: string, data: Record<string, any>): Promise<R>;
-  putForm<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
-  putForm<R = any>(
+  protected putForm<R = any>(url: string): Promise<R>;
+  protected putForm<R = any>(url: string, data: Record<string, any>): Promise<R>;
+  protected putForm<R = any>(url: string, query: Record<string, any>, data: Record<string, any>): Promise<R>;
+  protected putForm<R = any>(
     url: string,
     query: Record<string, any>,
     data: Record<string, any>,
     option: IRequestAPIOption
   ): Promise<R>;
-  putForm<R = any>(...args: any[]): Promise<R> {
+  protected putForm<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.request(getURLWithSearch(url, query), {
       ...option,
@@ -270,11 +275,16 @@ export class IRequest implements IRequestOption {
     });
   }
 
-  putFormData<R = any>(url: string): Promise<R>;
-  putFormData<R = any>(url: string, data: FormData): Promise<R>;
-  putFormData<R = any>(url: string, query: Record<string, any>, data: FormData): Promise<R>;
-  putFormData<R = any>(url: string, query: Record<string, any>, data: FormData, option: IRequestAPIOption): Promise<R>;
-  putFormData<R = any>(...args: any[]): Promise<R> {
+  protected putFormData<R = any>(url: string): Promise<R>;
+  protected putFormData<R = any>(url: string, data: FormData): Promise<R>;
+  protected putFormData<R = any>(url: string, query: Record<string, any>, data: FormData): Promise<R>;
+  protected putFormData<R = any>(
+    url: string,
+    query: Record<string, any>,
+    data: FormData,
+    option: IRequestAPIOption
+  ): Promise<R>;
+  protected putFormData<R = any>(...args: any[]): Promise<R> {
     const { url, query, data, option } = splitArgs(args);
     return this.request(getURLWithSearch(url, query), {
       ...option,
@@ -283,7 +293,7 @@ export class IRequest implements IRequestOption {
     });
   }
 
-  del<R = unknown>(url: string, query?: Record<string, any>, option?: IRequestAPIOption): Promise<R> {
+  protected del<R = unknown>(url: string, query?: Record<string, any>, option?: IRequestAPIOption): Promise<R> {
     return this.request(getURLWithSearch(url, query), {
       ...option,
       method: 'delete',
