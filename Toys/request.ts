@@ -86,10 +86,10 @@ interface IRequestOption {
 }
 
 export class IRequest implements IRequestOption {
-  baseURL: string;
-  timeout: number;
-  _handleResult: IHandleResult;
-  _commonRequestOption: RequestInit;
+  readonly baseURL: string;
+  readonly timeout: number;
+  protected _handleResult: IHandleResult;
+  protected _commonRequestOption: RequestInit;
 
   constructor(opt?: IRequestOption) {
     this.baseURL = opt?.baseURL ?? '';
